@@ -15,7 +15,7 @@ const Hireme = () => {
             Do you want any work from me?
           </h2>
           <p className="lg:text-left text-justify max-w-lg text-sm mt-4 text-gray-200 leading-6">
-          I am available for freelace work. Connect with me via phone: +91 12345-67890 or email: hello@gmail.com
+          I am available for freelace work. Connect with me via phone: +91 95371-05016 or email: gadhiyanaimish@gmail.com
           </p>
           <button className="btn-primary mt-10">Say Hello</button>
         </div>

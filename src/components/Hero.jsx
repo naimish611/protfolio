@@ -1,11 +1,23 @@
 import React from "react";
 import hero from "../assets/images/IMG_6456.jpg";
+import { Link } from "react-router-dom";
 const Hero = () => {
+
+  // const social_media = [
+  //   "logo-instagram",
+  //   // "logo-facebook",
+  //   "logo-linkedin",
+  // ];
+
   const social_media = [
-    "logo-instagram",
-    "logo-facebook",
-    "logo-linkedin",
-  ];
+    {
+    name : "logo-instagram",
+    link : "https://instagram.com/naimish_gadhiya_0701?igshid=OTk0YzhjMDVlZA=="
+    },{
+      name : "logo-linkedin",
+      link : "https://www.linkedin.com/in/naimish-gadhiya-426bba214"
+    }
+  ]
 
 
   return (
@@ -26,7 +38,7 @@ const Hero = () => {
             My Name is <span>Naimish Gadhiya</span>
           </h1>
           <h4 className="md:text-2xl text-lg md:leading-normal leading-5 mt-4 font-bold text-gray-600">
-            Fullstack Developer
+            MERNstack Developer
           </h4>
           <button className="btn-primary mt-8">Contact Me</button>
           <div className="mt-8 text-3xl flex items-center md:justify-start justify-center gap-5">
@@ -35,7 +47,10 @@ const Hero = () => {
                 key={icon}
                 className="text-gray-600 hover:text-white cursor-pointer "
               >
-                <ion-icon name={icon}></ion-icon>
+
+              <a href={icon.link}>
+                <ion-icon name={icon.name}></ion-icon>
+                </a>
               </div>
             ))}
           </div>
