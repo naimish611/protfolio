@@ -2,7 +2,6 @@ import React from "react";
 import hero from "../assets/images/IMG_6456.jpg";
 import { Link } from "react-router-dom";
 const Hero = () => {
-
   // const social_media = [
   //   "logo-instagram",
   //   // "logo-facebook",
@@ -11,14 +10,14 @@ const Hero = () => {
 
   const social_media = [
     {
-    name : "logo-instagram",
-    link : "https://instagram.com/naimish_gadhiya_0701?igshid=OTk0YzhjMDVlZA=="
-    },{
-      name : "logo-linkedin",
-      link : "https://www.linkedin.com/in/naimish-gadhiya-426bba214"
-    }
-  ]
-
+      name: "logo-instagram",
+      link: "https://instagram.com/naimish_gadhiya_0701?igshid=OTk0YzhjMDVlZA==",
+    },
+    {
+      name: "logo-linkedin",
+      link: "https://www.linkedin.com/in/naimish-gadhiya-426bba214",
+    },
+  ];
 
   return (
     <section
@@ -26,7 +25,12 @@ const Hero = () => {
       className="min-h-screen flex py-10 md:flex-row flex-col items-center"
     >
       <div className="flex-1 flex items-center justify-center h-full">
-        <img src={hero} alt="" className="md:w-11/12 h-full object-cover" style={{height  :"50%" , width : "40%"}} />
+        <img
+          src={hero}
+          alt=""
+          className="md:w-11/12 h-full object-cover"
+          style={{ height: "50%", width: "40%" }}
+        />
       </div>
       <div className="flex-1">
         <div className="md:text-left text-center">
@@ -35,7 +39,8 @@ const Hero = () => {
               Hello!
               <br />
             </span>
-            My Name is <span>Naimish Gadhiya</span>
+            My Name is{" "}
+            <span style={{ color: "rgb(238,174,202)" }}>Naimish Gadhiya</span>
           </h1>
           <h4 className="md:text-2xl text-lg md:leading-normal leading-5 mt-4 font-bold text-gray-600">
             MERNstack Developer
@@ -47,9 +52,8 @@ const Hero = () => {
                 key={icon}
                 className="text-gray-600 hover:text-white cursor-pointer "
               >
-
-              <a href={icon.link}>
-                <ion-icon name={icon.name}></ion-icon>
+                <a href={icon.link}>
+                  <ion-icon name={icon.name}></ion-icon>
                 </a>
               </div>
             ))}
