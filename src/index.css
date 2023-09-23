@@ -32,3 +32,10 @@ textarea {
 ::selection {
   @apply bg-cyan-600;
 }
+
+.gradient-text {
+  background: linear-gradient(45deg, #248474, #63c93b); /* Adjust the colors as needed */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

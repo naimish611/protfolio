@@ -1,12 +1,16 @@
 import React from "react";
 import hero from "../assets/images/IMG_6456.jpg";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Typewriter } from 'react-simple-typewriter'
+
 const Hero = () => {
   // const social_media = [
   //   "logo-instagram",
   //   // "logo-facebook",
   //   "logo-linkedin",
   // ];
+
+  const navigate = useNavigate();
 
   const social_media = [
     {
@@ -18,6 +22,16 @@ const Hero = () => {
       link: "https://www.linkedin.com/in/naimish-gadhiya-426bba214",
     },
   ];
+
+
+  const handleType = (count) => {
+    // access word count number
+    console.log(count)
+  }
+
+  const handleDone = () => {
+    console.log(`Done after 5 loops!`)
+  }
 
   return (
     <section
@@ -40,12 +54,26 @@ const Hero = () => {
               <br />
             </span>
             My Name is{" "}
-            <span style={{ color: "rgb(238,174,202)" }}>Naimish Gadhiya</span>
+            {/* <span style={{ color: "rgb(238,174,202)" }}>Naimish Gadhiya</span> */}
+            <span className="gradient-text">NAIMISH GADHIYA</span>
           </h1>
+         
           <h4 className="md:text-2xl text-lg md:leading-normal leading-5 mt-4 font-bold text-gray-600">
-            MERNstack Developer
-          </h4>
-          <button className="btn-primary mt-8">Contact Me</button>
+          {/* Style will be inherited from the parent element */}
+          <Typewriter
+            words={[' Reactjs Developer', 'Developer', 'Designer']}
+            loop={5}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+            onLoopDone={handleDone}
+            onType={handleType}
+          />
+        </h4>
+
+          <button className="btn-primary mt-8" onClick={() => {navigate("#contact")}}>Contact Me</button>
           <div className="mt-8 text-3xl flex items-center md:justify-start justify-center gap-5">
             {social_media?.map((icon) => (
               <div

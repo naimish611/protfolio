@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from 'react';
+
 
 const Contact = () => {
   const contact_info = [
@@ -9,6 +10,52 @@ const Contact = () => {
       text: "Ahmedabad",
     },
   ];
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [emptyFields, setEmptyFields] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    // Check if any of the form fields are empty
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      setEmptyFields(true);
+      return;
+    }
+
+    // Form fields are not empty, reset emptyFields state
+    setEmptyFields(false);
+
+    // Handle form submission logic here (e.g., send data to a server)
+
+    // Clear form data
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    });
+
+    // Set formSubmitted to true to display success message
+    setFormSubmitted(true);
+  };
+
+  const form = () => {
+    alert("Form submitted successfully!")
+  }
+
   return (
     <section id="contact" className="py-10 px-3 text-white">
       <div className="text-center mt-8">
@@ -21,11 +68,29 @@ const Contact = () => {
           className="mt-16 flex md:flex-row flex-col
          gap-6 max-w-5xl bg-gray-800 md:p-6 p-2 rounded-lg mx-auto"
         >
-          <form className="flex flex-col flex-1 gap-5">
-            <input type="text" placeholder="Your Name" />
-            <input type="Email" placeholder="Your Email Address" />
-            <input type="text" placeholder="Write a Subject" />
-            <textarea placeholder="Your Message" rows={10}></textarea>
+          <form className="flex flex-col flex-1 gap-5" nSubmit={handleSubmit}>
+            <input type="text" placeholder="Your Name"
+          id="name"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          required />
+            <input type="Email" placeholder="Your Email Address"   id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required />
+            <input type="text" placeholder="Write a Subject"  id="subject"
+          name="subject"
+          value={formData.subject}
+          onChange={handleChange}
+          required />
+            <textarea placeholder="Your Message" rows={10}   name="message"
+          value={formData.message}
+          onChange={handleChange}
+          required></textarea>
+            {emptyFields && <p className="text-red-500">Please fill in all fields.</p>}
+            {formSubmitted && <p className="text-green-500" onClick={form}></p>}
             <button className="btn-primary w-fit">Send Message</button>
           </form>
           <div className="flex flex-col  gap-7 ">
